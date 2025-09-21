@@ -290,6 +290,6 @@ class OccupancyGrid:
         plt.show()
 
         
-
-grid = OccupancyGrid('Austin')
-grid.view_complete()
+if __name__ == '__main__':
+    grid = OccupancyGrid('Austin')
+    grid.view_complete()
