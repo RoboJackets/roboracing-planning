@@ -118,6 +118,7 @@ class OccupancyGrid:
     def get_centerline_points(self):
         self.intersection_points_raw = self.points_from_skeleton(skeletonize(self.intersection_mask), dist=5)
 
+    
     def points_from_skeleton(self, skeleton, dist=4):
         points = set()
         edges = dict()
@@ -284,12 +285,12 @@ class OccupancyGrid:
         # plt.imshow(array, cmap='gray')
         # plt.show()
         # edges as points
-        plt.scatter(*(self.inner_points[0 : 500, :]).T, c='red', s=0.1, alpha=1)
-        plt.scatter(*(self.outer_points[0 : 500, :]).T, c='blue', s=0.1, alpha=1)
-        plt.scatter(*(self.intersection_points[0 : 500, :]).T, c='black', s=0.1, alpha=1)
+        plt.scatter(*(self.inner_points).T, c='red', s=0.1, alpha=1)
+        plt.scatter(*(self.outer_points).T, c='blue', s=0.1, alpha=1)
+        plt.scatter(*(self.intersection_points).T, c='black', s=0.1, alpha=1)
         plt.show()
 
         
-if __name__ == '__main__':
-    grid = OccupancyGrid('Austin')
-    grid.view_complete()
+
+grid = OccupancyGrid('BrandsHatch')
+grid.view_complete()
